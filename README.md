@@ -1,6 +1,8 @@
 iOS Application
 
-This application can remember its previous state upon relaunch.
+This application can **remember** its **previous state** upon relaunch.
 
-This is achieved by wrapping the to-be-saved data in the @AppStorage Wrapper.
+It remembers an Integer
+
+This is achieved by wrapping the Integer in the ```@AppStorage``` Wrapper.
 
