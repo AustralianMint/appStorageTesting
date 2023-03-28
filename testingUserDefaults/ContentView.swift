@@ -20,32 +20,41 @@ struct BlueButton: ButtonStyle {
     }
 }
 
+//defining Gradient color for background
+let backgroundGradient = LinearGradient(
+    colors: [Color.accentColor, Color.white],
+    startPoint: .top,
+    endPoint: .bottom)
+
 struct ContentView: View {
     @AppStorage ("tapCount") private var tapCount = 0
     
     var body: some View {
-        VStack {
-            Text("\(tapCount)")
-                .font(.system(size: 200))
-                .fontWeight(.bold)
-                
-            HStack {
-                Button("Minus") {
-                    tapCount -= 1
+        ZStack {
+            backgroundGradient
+            VStack {
+                Text("\(tapCount)")
+                    .font(.system(size: 200))
+                    .fontWeight(.bold)
+                    
+                HStack {
+                    Button("Minus") {
+                        tapCount -= 1
+                    }
+                    .buttonStyle(BlueButton())
+                    
+                    Spacer()
+                    
+                    Button("Plus") {
+                        tapCount += 1
+                    }
+                    .buttonStyle(BlueButton())
                 }
-                .buttonStyle(BlueButton())
-                
-                Spacer()
-                
-                Button("Plus") {
-                    tapCount += 1
-                }
-                .buttonStyle(BlueButton())
+                .padding()
             }
             .padding()
-            
         }
-        .padding()
+        .ignoresSafeArea()
     }
 }
 
